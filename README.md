@@ -59,7 +59,7 @@ before SSH connections are attempted.
 Set dropbear to use *all* network interfaces to ensure remote unlocks work over
 cloudflared tunnel first. Then restrict to the cloudflared tunnel once it is working:
 
-`/etc/dropbear/initramfs/config`
+`/etc/dropbear/initramfs/dropbear.conf`
 
 ```bash
 DROPBEAR_OPTIONS='... -p 127.0.0.1:2222 ...'
