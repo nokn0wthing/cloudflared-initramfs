@@ -1,0 +1,30 @@
+#!/bin/sh
+
+PREREQ="udev"
+
+prereqs() {
+    echo "$PREREQ"
+}
+
+case "$1" in
+    prereqs)
+        prereqs
+        exit 0
+    ;;
+esac
+
+. /scripts/functions
+
+log_begin_msg 'Initialize loopback interface'
+ip link set lo up
+ip address add 127.0.0.1/8 dev lo
+log_end_msg
+
+log_begin_msg 'enable networking'
+configure_networking
+log_end_msg
+
+log_begin_msg 'Starting cloudflared tunnel'
+cloudflared tunnel run --token PLACEHOLDER &
+echo $! > /run/cloudflared.pid
+log_end_msg

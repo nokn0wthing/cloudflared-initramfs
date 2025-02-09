@@ -1,0 +1,20 @@
+#!/bin/sh
+
+PREREQ=""
+
+prereqs() {
+    echo "$PREREQ"
+}
+
+case "$1" in
+    prereqs)
+        prereqs
+        exit 0
+    ;;
+esac
+
+. /scripts/functions
+
+log_begin_msg 'Stopping cloudflared boot network'
+kill -9 $(cat /run/cloudflared.pid)
+log_end_msg
