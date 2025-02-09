@@ -28,7 +28,7 @@ Installation is supported via make.
 Download, extract and configure contents, and install on target machine.
 
 ### Installation
-[Token](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
+[Token](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/configure-tunnels/remote-management/#view-the-tunnel-token)
 ```bash
 TOKEN=<cloudflare token> make install
 ```

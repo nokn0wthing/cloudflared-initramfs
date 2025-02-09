@@ -19,7 +19,7 @@ root_check:
 install_dependencies_debian: root_check
 	@curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null
 	@echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main' | tee /etc/apt/sources.list.d/cloudflared.list
-	@apt update && apt install wget cloudflared initramfs-tools
+	@apt update && apt install cloudflared initramfs-tools
 
 .PHONY: install_files
 install_files:
